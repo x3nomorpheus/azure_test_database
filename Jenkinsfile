@@ -9,11 +9,6 @@
 
   stages {
 
-      steps {
-        git 'https://github.com/x3nomorpheus/azure_test_database.git'
-      }
-    }
-
     stage('Build image') {
       steps{
         script {
@@ -41,5 +36,4 @@
 	 sh 'ssh -i /home/jenkins/.ssh/id_rsa -o "StrictHostKeyChecking no" kio@workstation kubectl --kubeconfig /home/kio/k8s/azurek8s apply -f /home/kio/k8s/kubernetes-apps/mariadb.yaml'
       }
     }
-
   }
